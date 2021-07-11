@@ -94,7 +94,7 @@
   },
   "handlers": [
     {
-      "code": "coroutinesTable  = {}\n--all functions here will become a coroutine\nMyCoroutines = {\n    function()\n        for i=0, 10 do\n            system.print(\"function 1 --- \"..i)\n            coroutine.yield(coroutinesTable[1])--start with index 1 and so on\n        end\n    end,\n    function()\n        for i=0, 10 do\n            system.print(\"function 2 --- \"..i)\n            coroutine.yield(coroutinesTable[2])--the second fonction yiel is with index 2\n        end\n    end\n}\n\nfunction initCoroutines()\n    for _,f in pairs(MyCoroutines) do\n        local co = coroutine.create(f)\n        table.insert(coroutinesTable, co)\n    end\nend\n\ninitCoroutines()\n\nrunCoroutines = function()\n    for i,co in ipairs(coroutinesTable) do\n        if coroutine.status(co) == \"dead\" then\n            coroutinesTable[i] = coroutine.create(MyCoroutines[i])\n        end\n        if coroutine.status(co) == \"suspended\" then\n            assert(coroutine.resume(co))\n        end\n    end\nend\n\nMainCoroutine = coroutine.create(runCoroutines)",
+      "code": "--[[\n    DU-Nested-Coroutines by Jericho\n    Permit to easier avoid CPU Load Errors\n    Source available here: https://github.com/Jericho1060/du-nested-coroutines\n]]--\n\ncoroutinesTable  = {}\n--all functions here will become a coroutine\nMyCoroutines = {\n    function()\n        for i=0, 10 do\n            system.print(\"function 1 --- \"..i)\n            coroutine.yield(coroutinesTable[1])--start with index 1 and so on\n        end\n    end,\n    function()\n        for i=0, 10 do\n            system.print(\"function 2 --- \"..i)\n            coroutine.yield(coroutinesTable[2])--the second fonction yiel is with index 2\n        end\n    end\n}\n\nfunction initCoroutines()\n    for _,f in pairs(MyCoroutines) do\n        local co = coroutine.create(f)\n        table.insert(coroutinesTable, co)\n    end\nend\n\ninitCoroutines()\n\nrunCoroutines = function()\n    for i,co in ipairs(coroutinesTable) do\n        if coroutine.status(co) == \"dead\" then\n            coroutinesTable[i] = coroutine.create(MyCoroutines[i])\n        end\n        if coroutine.status(co) == \"suspended\" then\n            assert(coroutine.resume(co))\n        end\n    end\nend\n\nMainCoroutine = coroutine.create(runCoroutines)",
       "filter": {
         "args": [],
         "signature": "start()",
@@ -103,7 +103,7 @@
       "key": "0"
     },
     {
-      "code": "if coroutine.status(MainCoroutine) == \"dead\" then\n  MainCoroutine = coroutine.create(runCoroutines)\nend\nif coroutine.status(MainCoroutine) == \"suspended\" then\n  assert(coroutine.resume(MainCoroutine))\nend",
+      "code": "--[[\n    DU-Nested-Coroutines by Jericho\n    Permit to easier avoid CPU Load Errors\n    Source available here: https://github.com/Jericho1060/du-nested-coroutines\n]]--\n\nif coroutine.status(MainCoroutine) == \"dead\" then\n  MainCoroutine = coroutine.create(runCoroutines)\nend\nif coroutine.status(MainCoroutine) == \"suspended\" then\n  assert(coroutine.resume(MainCoroutine))\nend",
       "filter": {
         "args": [],
         "signature": "update()",
