@@ -1,7 +1,13 @@
 # du-nested-coroutines
  A small script for DU to avoid any CPU load error
 
+### How to Install
+
+Copy the content of the file `config.json`
+In the game, right click on the programming board, and select "Advanced" and "Paste Lua configuration from clipboard".
+
 ### How to use
+
 Write your functions in the unit > start event, in the table `MyCoroutines`.
 
 You can use the stardard coroutine.yield method in your function by always placing as parameter the table `coroutinesTable[index]` replacing `index` with the index of your function (1 for the 1st function, 2 for the second and so on)
