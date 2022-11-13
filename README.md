@@ -12,7 +12,7 @@ In the game, right-click on the programming board, and select "Advanced" and "Pa
 
 ## How to use
 
-Write your functions in the unit > start event, in the table `MyCoroutines`.
+Write your functions in the unit > start event, in the table `functions`.
 
 You can use the standard coroutine.yield method in your function by always placing as parameter the table `self.functionName` replacing `functionName` with the name of your function (co1 or co2 in the example).
 
