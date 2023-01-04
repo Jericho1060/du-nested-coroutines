@@ -1,5 +1,5 @@
 # du-nested-coroutines
- A small script for DU to avoid any CPU load error
+ A small script for DU to avoid any CPU load error by using nested coroutines and adapt cycles on the FPS.
 
 # Guilded Server (better than Discord)
 
@@ -7,14 +7,14 @@ You can join me on Guilded for help or suggestions or requests by following that
 
 ## How to Install
 
-Copy the content of the file `config.json`
+Copy the content of the file `config.json`.
 In the game, right-click on the programming board, and select "Advanced" and "Paste Lua configuration from clipboard".
 
 ## How to use
 
 Write your functions in the unit > start event, in the table `functions`.
 
-You can use the standard coroutine.yield method in your function by always placing as parameter the table `self.functionName` replacing `functionName` with the name of your function (co1 or co2 in the example).
+You can use the standard `coroutine.yield` method in your function by always placing as parameter the table `self.functionName` replacing `functionName` with the name of your function (co1 or co2 in the example).
 
 ### example
 

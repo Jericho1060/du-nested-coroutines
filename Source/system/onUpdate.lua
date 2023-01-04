@@ -4,4 +4,4 @@
     Source available here: https://github.com/Jericho1060/du-nested-coroutines
 ]]--
 
-NestCo.update()
+NestCo:update()
