@@ -1,3 +1,8 @@
+# Project closed
+
+This project is closed, I will not update it anymore.
+It's not abandoned but replaced by a more clean and efficient version with more features. You can find it here: https://github.com/Jericho1060/du-lua-framework  
+
 # du-nested-coroutines
  A small script for DU to avoid any CPU load error by using nested coroutines and adapt cycles on the FPS.
 
